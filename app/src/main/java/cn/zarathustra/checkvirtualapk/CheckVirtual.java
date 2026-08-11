@@ -31,7 +31,8 @@ public class CheckVirtual {
         int exitDirCount = 0;
 
         for (int i = 0; i < lines.length; i++) {
-            if (lines[i].contains(filter)) {
+            String[] parts = lines[i].trim().split("\\s+");
+            if (parts.length > 0 && parts[0].equals(filter)) {
                 int pkgStartIndex = lines[i].lastIndexOf(" ");
                 String processName = lines[i].substring(pkgStartIndex <= 0
                         ? 0 : pkgStartIndex + 1, lines[i].length());
